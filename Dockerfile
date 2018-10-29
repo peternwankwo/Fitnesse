@@ -20,6 +20,8 @@ RUN exit
 
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
 
+ENTRYPOINT ["/bin/CMD", "exit"]
+
 #COPY /fitnesse /fitnesse
 
 
