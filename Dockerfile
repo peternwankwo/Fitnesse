@@ -16,6 +16,8 @@ WORKDIR /FitNesseRoot
 
 CMD ["java", "-jar", "../fitnesse-standalone.jar"]
 
+RUN exit
+
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
 
 #COPY /fitnesse /fitnesse
