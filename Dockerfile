@@ -14,9 +14,8 @@ WORKDIR /FitNesseRoot
 
 #COPY . .  (means copy everything in the current directory
 
-ENTRYPOINT ["java", "-jar", "../fitnesse-standalone.jar"]
+CMD ["java", "-jar", "../fitnesse-standalone.jar && exit"]
 
-RUN exit
 
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
 
