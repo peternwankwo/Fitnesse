@@ -10,7 +10,7 @@ pipeline {
                 //bat "mvn clean package"
 				
 				// -t is tag 
-				bat 'docker build -t Fitnesse .'
+				bat 'docker build -t fitnesseServer .'
 				
 				//bat 'docker container run --rm -p 8787:80 FitnesseServer'
 				               
