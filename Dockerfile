@@ -6,6 +6,8 @@ RUN mkdir -p /FitNesseRoot
 
 RUN apk update && apk add bash
 
+COPY fitnesse-standalone.jar fitnesse-standalone.jar
+
 WORKDIR /FitNesseRoot
 
 #COPY /FitNesseRoot /FitNesseRoot
@@ -14,14 +16,12 @@ WORKDIR /FitNesseRoot
 
 #COPY . .  (means copy everything in the current directory
 
-COPY fitnesse-standalone.jar fitnesse-standalone.jar
+#COPY runtest.bat runtest.bat
 
-COPY runtest.bat runtest.bat
-
-CMD ../runtest.bat
+#CMD ../runtest.bat
 
 
-#CMD ["java", "-jar", "fitnesse-standalone.jar"]
+#CMD ["java", "-jar", "fitnesse-standalone.jar", "-b", "myresults.txt", "-c", "FitNesse.SuiteAcceptanceTests?suite&format=text"]
 
 #ENTRYPOINT ["/bin/CMD", "exit"]
 
