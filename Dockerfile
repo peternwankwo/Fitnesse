@@ -2,10 +2,6 @@ FROM anapsix/alpine-java
 
 EXPOSE 80
 
-COPY fitnesse-standalone.jar fitnesse-standalone.jar
-
-COPY runtest.bat runtest.bat
-
 RUN mkdir -p /FitNesseRoot
 
 RUN apk update && apk add bash
@@ -17,6 +13,10 @@ WORKDIR /FitNesseRoot
 
 
 #COPY . .  (means copy everything in the current directory
+
+COPY fitnesse-standalone.jar fitnesse-standalone.jar
+
+COPY runtest.bat runtest.bat
 
 CMD ../runtest.bat
 
