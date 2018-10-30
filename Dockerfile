@@ -20,7 +20,7 @@ WORKDIR /FitNesseRoot
 
 #CMD ../runtest.bat
 
-CMD ["nohup", "java", "-jar", "../fitnesse-standalone.jar"]
+CMD ["nohup", "java", "-jar", "../fitnesse-standalone.jar", "&"]
 #CMD ["java", "-jar", "../fitnesse-standalone.jar", "-b", "myresults.txt", "-c", "FitNesse.SuiteAcceptanceTests?suite&format=text"]
 
 #ENTRYPOINT ["/bin/CMD", "exit"]
