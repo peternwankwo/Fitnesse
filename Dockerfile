@@ -4,7 +4,7 @@ EXPOSE 80
 
 COPY fitnesse-standalone.jar fitnesse-standalone.jar
 
-COPY runtest.sh runtest.sh
+COPY runtest.bat runtest.bat
 
 RUN mkdir -p /FitNesseRoot
 
@@ -18,7 +18,7 @@ WORKDIR /FitNesseRoot
 
 #COPY . .  (means copy everything in the current directory
 
-RUN runtest.sh
+CMD runtest.bat
 
 
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
