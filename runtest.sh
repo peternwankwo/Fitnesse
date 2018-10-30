@@ -1,0 +1,1 @@
+java -jar fitnesse-standalone.jar -b myresults.txt -c "FitNesse.SuiteAcceptanceTests?suite&format=text"

@@ -14,7 +14,7 @@ WORKDIR /FitNesseRoot
 
 #COPY . .  (means copy everything in the current directory
 
-CMD ["java", "-jar", "../fitnesse-standalone.jar"]
+CMD ["../runtest.sh"]
 
 
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
