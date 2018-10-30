@@ -8,6 +8,8 @@ COPY runtest.sh runtest.sh
 
 RUN mkdir -p /FitNesseRoot
 
+RUN apk update && apk add bash
+
 WORKDIR /FitNesseRoot
 
 #COPY /FitNesseRoot /FitNesseRoot
