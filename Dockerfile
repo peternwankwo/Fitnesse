@@ -21,7 +21,7 @@ WORKDIR /FitNesseRoot
 #CMD ../runtest.bat
 
 
-CMD ["java", "-jar", "fitnesse-standalone.jar", "-b", "myresults.txt", "-c", "FitNesse.SuiteAcceptanceTests?suite&format=text"]
+CMD ["java", "-jar", "../fitnesse-standalone.jar", "-b", "myresults.txt", "-c", "FitNesse.SuiteAcceptanceTests?suite&format=text"]
 
 #ENTRYPOINT ["/bin/CMD", "exit"]
 
