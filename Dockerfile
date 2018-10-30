@@ -1,32 +1,20 @@
-FROM anapsix/alpine-java
+ARG  TEST_VERSION=latest
+ARG  SELENIUM_VERSION=latest
+FROM hsac/fitnesse-fixtures-test-jre8:${TEST_VERSION} as hsac-fixtures
 
-EXPOSE 80
+FROM selenium/standalone-chrome:${SELENIUM_VERSION}
+COPY --from=hsac-fixtures /fitnesse /fitnesse
+RUN sudo chown -R seluser:seluser /fitnesse/
 
-RUN mkdir -p /FitNesseRoot
+WORKDIR /fitnesse
 
-RUN apk update && apk add bash
+RUN mkdir -p /fitnesse/target/selenium-log
+COPY startGridAndRunTests.sh .
 
-COPY fitnesse-standalone.jar fitnesse-standalone.jar
+VOLUME /fitnesse/target
+VOLUME /fitnesse/wiki/FitNesseRoot
 
-WORKDIR /FitNesseRoot
+ENV FITNESSE_OPTS -DseleniumBrowser=chrome -DseleniumGridUrl=http://localhost:4444/wd/hub
 
-#COPY /FitNesseRoot /FitNesseRoot
-
-
-
-#COPY . .  (means copy everything in the current directory
-
-#COPY runtest.bat runtest.bat
-
-#CMD ../runtest.bat
-
-CMD ["nohup", "java", "-jar", "../fitnesse-standalone.jar &"]
-#CMD ["java", "-jar", "../fitnesse-standalone.jar", "-b", "myresults.txt", "-c", "FitNesse.SuiteAcceptanceTests?suite&format=text"]
-
-#ENTRYPOINT ["/bin/CMD", "exit"]
-
-#COPY /fitnesse /fitnesse
-
-
-#to duild the Fitnesse container from where the dockerfile is located: docker build -t testnode .
-#to run the  Fitnesse container: docker container run --rm -p 8989:80 testnode
+ENTRYPOINT ["/fitnesse/startGridAndRunTests.sh"]
+CMD []

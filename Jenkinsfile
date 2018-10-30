@@ -12,12 +12,17 @@ pipeline {
 				// -t is tag 
 				bat "docker build -t fitnesseserver ."
 				
-				bat "docker container run --rm -p 8787:80 fitnesseserver"
+				//bat "docker container run --rm -p 8787:80 fitnesseserver"
 				
 				
 				               
             }
 
         }
+		
+		stage (){
+		
+		
+		}
     }
 }
