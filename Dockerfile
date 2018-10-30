@@ -14,7 +14,7 @@ WORKDIR /FitNesseRoot
 
 #COPY . .  (means copy everything in the current directory
 
-CMD ["java", "-jar", "../fitnesse-standalone.jar" && "/bin/sh", "exit"]
+CMD ["java", "-jar", "../fitnesse-standalone.jar", "-b myresults.xml", "-c FitNesse.SuiteAcceptanceTests?suite&format=xml"]
 
 
 #CMD ["java", "-jar", "fitnesse-standalone.jar"]
