@@ -4,6 +4,8 @@ EXPOSE 80
 
 COPY fitnesse-standalone.jar fitnesse-standalone.jar
 
+COPY runtest.sh runtest.sh
+
 RUN mkdir -p /FitNesseRoot
 
 WORKDIR /FitNesseRoot
